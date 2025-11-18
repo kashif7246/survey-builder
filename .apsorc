@@ -1,0 +1,80 @@
+{
+  "entities": [
+    {
+      "name": "Survey",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "title",
+          "type": "varchar",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Question",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "text",
+          "type": "text",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Response",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "value",
+          "type": "text",
+          "nullable": false
+        }
+      ]
+    },
+    {
+      "name": "Analytics",
+      "created_at": false,
+      "updated_at": false,
+      "fields": [
+        {
+          "name": "metric",
+          "type": "varchar",
+          "nullable": false
+        },
+        {
+          "name": "value",
+          "type": "numeric",
+          "nullable": false
+        }
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "from": "Survey",
+      "to": "Question",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Question",
+      "to": "Response",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Survey",
+      "to": "Response",
+      "type": "OneToMany"
+    },
+    {
+      "from": "Survey",
+      "to": "Analytics",
+      "type": "OneToMany"
+    }
+  ],
+  "_removedEntities": []
+}
